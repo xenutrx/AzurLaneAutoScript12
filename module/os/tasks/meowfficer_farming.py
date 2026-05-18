@@ -10,7 +10,7 @@ class OpsiMeowfficerFarming(OSMap):
         """
         Recommend 3 or 5 for higher meowfficer searching point per action points ratio.
         """
-        if OpsiHazard1Leveling_TargetZone == 44:
+        if self.config.OpsiMeowfficerFarming_TargetZone == 999:
             logger.hr(f'OS meowfficer farming, hazard_level={self.config.OpsiMeowfficerFarming_HazardLevel}', level=1)
             if self.is_cl1_enabled and self.config.OpsiMeowfficerFarming_ActionPointPreserve < 1000:
                 logger.info('With CL1 leveling enabled, set action point preserve to 1000')
@@ -92,7 +92,7 @@ class OpsiMeowfficerFarming(OSMap):
                     self.run_auto_search()
                     self.handle_after_auto_search()
                     self.config.check_task_switch()
-        if OpsiHazard1Leveling_TargetZone == 22:
+        else:
             logger.hr('OS hazard 1 leveling', level=1)
             # Without these enabled, CL1 gains 0 profits
             self.config.override(
